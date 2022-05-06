@@ -61,8 +61,8 @@ def search():
         tit = results["result"][i]["title"]
         try:
             dur = results["result"][i]["duration"]
-        except KeyError as e:
-            print("Error is", e)
+        except KeyError:
+            pass
         tup = (url, tit, dur)
         tup_lst.append(tup)
 

@@ -56,10 +56,10 @@ def player():
         for e in enum_lst:
             if i == e[0]:
                 if os.path.isdir(e[1]):
-                    cmd1 = "mpv --play-dir '{e[1]}'"
+                    cmd1 = "mpv --no-audio-display --play-dir '{e[1]}'"
                     subprocess.run(cmd1, cwd="music", shell=True)
                 else:
-                    cmd2 = f"mpv '{e[1]}'"
+                    cmd2 = f"mpv --no-audio-display '{e[1]}'"
                     subprocess.run(cmd2, cwd="music", shell=True)
 
 

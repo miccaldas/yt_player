@@ -18,6 +18,19 @@ def type_watch(source, value):
 
 snoop.install(watch_extras=[type_watch])
 
+custom_style_download = Style(
+    [
+        ("qmark", "fg:#FF5F00 bold"),
+        ("question", "fg:#A2B38B bold"),
+        ("answer", "fg:#F1DDBF bold"),
+        ("pointer", "fg:#F8CB2E bold"),
+        ("highlighted", "fg:#FEFBE7 bold"),
+        ("selected", "fg:#DAE5D0 bold"),
+        ("instruction", "fg:#E4E9BE bold"),
+        ("text", "fg:#F1DDBF bold"),
+    ]
+)
+
 
 # @snoop
 def download():
@@ -32,16 +45,6 @@ def download():
     downloads to it.
     """
 
-    custom_style_download = Style(
-        [
-            ("qmark", "fg:#FF5F00 bold"),
-            ("question", "fg:#A2B38B bold"),
-            ("answer", "fg:#F1DDBF bold"),
-            ("instruction", "fg:#E4E9BE bold"),
-            ("text", "fg:#F1DDBF bold"),
-        ]
-    )
-
     tups = search()
     music_folders = [i[0] for i in os.walk("music")]
 
@@ -49,12 +52,14 @@ def download():
     for tup in enumerate(tups[1]):
         print(color(f" (**) - {tup}", fore="#A2B38B"))
     print("\n")
+
     entry_ids = questionary.text(
         "What ids do you want to choose?",
         qmark="(**)",
         style=custom_style_download,
         instruction="Choose the numbers of the entries you like",
     ).ask()
+
     lst_id = entry_ids.split(" ")
     int_id = [int(i) for i in lst_id]
 
