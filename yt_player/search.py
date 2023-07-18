@@ -1,5 +1,4 @@
 """Searches Youtube for a query."""
-import isort
 import questionary
 import snoop
 from questionary import Style

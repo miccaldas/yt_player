@@ -1,7 +1,6 @@
 """Downloads Youtube audios."""
 import os
 
-import isort
 import questionary
 import snoop
 from colr import color
@@ -32,7 +31,7 @@ custom_style_download = Style(
 )
 
 
-# @snoop
+@snoop
 def download():
     """
     Receives query and tuple with url, title and duration
